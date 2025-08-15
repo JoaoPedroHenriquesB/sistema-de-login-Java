@@ -9,10 +9,6 @@ Este é um projeto de exemplo de uma aplicação web para registro e login de us
     <td align="center"><strong>Página de Login e Registro</strong></td>
     <td align="center"><strong>Página de Boas-Vindas</strong></td>
   </tr>
-  <tr>
-    <td><img src="https://i.imgur.com/gY9gXyW.png" alt="Página de Login e Registro" width="400"></td>
-    <td><img src="https://i.imgur.com/s6t3f8a.png" alt="Página de Boas-Vindas" width="400"></td>
-  </tr>
 </table>
 
 ## ✨ Funcionalidades
