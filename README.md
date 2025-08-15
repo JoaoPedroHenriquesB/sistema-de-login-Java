@@ -41,10 +41,9 @@ Antes de começar, certifique-se de que você tem os seguintes softwares instala
 ### 2. Clone o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/appLogin.git
+git clone https://github.com/JoaoPedroHenriquesB/sistema-de-login-Java.git
 cd appLogin
 ```
-> **Nota:** Substitua `https://github.com/seu-usuario/appLogin.git` pela URL do seu repositório no GitHub.
 
 ### 3. Configure o Banco de Dados
 
