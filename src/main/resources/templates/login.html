@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login e Registro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <div class="notification-icon">
+                <span id="notification-icon">✓</span>
+            </div>
+            <div class="notification-text">
+                <span id="notification-message">Mensagem</span>
+            </div>
+            <button class="notification-close" onclick="closeNotification()">×</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="login-form">
+            <h2>Login</h2>
+            <!-- Mensagens de feedback para o usuário -->
+            <div th:if="${param.error}" style="color: red; text-align: center; margin-bottom: 15px;">
+                Email ou senha inválidos.
+            </div>
+            <div th:if="${param.logout}" style="color: #333; text-align: center; margin-bottom: 15px;">
+                Você foi desconectado com sucesso.
+            </div>
+            <div th:if="${param.success}" style="color: green; text-align: center; margin-bottom: 15px;">
+                Registro realizado com sucesso! Faça o login.
+            </div>
+
+            <form th:action="@{/login}" method="post">
+                <div class="input-group">
+                    <!-- O name="email" corresponde ao que o Spring Security espera (configurado em SecurityConfig) -->
+                    <input name="email" id="login_user" type="email" placeholder="Email" required>
+                    <i class="icon user-icon">📧</i>
+                </div>
+                <div class="input-group password-group">
+                    <input name="password" id="login_pass" type="password" placeholder="Senha" required>
+                    <i class="icon password-icon">🔒</i>
+                    <button type="button" class="toggle-password" onclick="togglePassword('login_pass', this)">
+                        <i class="eye-icon">👁️</i>
+                    </button>
+                </div>
+                <button id="login_btn" type="submit">Entrar</button>
+            </form>
+            <div class="toggle-link" onclick="showRegister()">Não tem conta? Registre-se</div>
+        </div>
+        <div id="register-form" style="display:none;">
+            <h2>Registro</h2>
+            <!-- Formulário de registro com Thymeleaf para validação de erros -->
+            <form th:action="@{/register}" th:object="${user}" method="post">
+                <div class="input-group">
+                    <input th:field="*{name}" id="register_user" type="text" placeholder="Usuário" required>
+                    <i class="icon user-icon">👤</i>
+                    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                        style="color: red; font-size: 12px; width: 100%;"></p>
+                </div>
+                <div class="input-group">
+                    <input th:field="*{email}" id="register_email" type="email" placeholder="Email" required>
+                    <i class="icon email-icon">📧</i>
+                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                        style="color: red; font-size: 12px; width: 100%;"></p>
+                </div>
+                <div class="input-group password-group">
+                    <input th:field="*{password}" id="register_pass" type="password" placeholder="Senha" required>
+                    <i class="icon password-icon">🔒</i>
+                    <button type="button" class="toggle-password" onclick="togglePassword('register_pass', this)">
+                        <i class="eye-icon">👁️</i>
+                    </button>
+                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                        style="color: red; font-size: 12px; width: 100%;"></p>
+                </div>
+                <button id="register_btn" type="submit">Registrar</button>
+            </form>
+            <div class="toggle-link" onclick="showLogin()">Já tem conta? Faça login</div>
+        </div>
+    </div>
+    <script th:src="@{/js/script.js}"></script>
+</body>
+
+</html>

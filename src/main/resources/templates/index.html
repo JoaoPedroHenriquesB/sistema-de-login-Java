@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <div class="welcome-container">
+        <div sec:authorize="isAuthenticated()">
+            <h1>Bem-vindo(a), <span th:text="${user != null ? user.name : 'Usuário'}"></span>!</h1>
+            <p>Login realizado com sucesso com o email: <strong sec:authentication="principal.username"></strong>.</p>
+
+            <form th:action="@{/logout}" method="post">
+                <button class="logout-button" type="submit">Sair</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
