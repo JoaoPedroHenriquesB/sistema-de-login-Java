@@ -2,15 +2,6 @@
 
 Este é um projeto de exemplo de uma aplicação web para registro e login de usuários, desenvolvida com Java e o framework Spring Boot. A aplicação demonstra a implementação de funcionalidades de autenticação e autorização utilizando Spring Security, com um frontend construído com Thymeleaf.
 
-##  Screenshots
-
-<table>
-  <tr>
-    <td align="center"><strong>Página de Login e Registro</strong></td>
-    <td align="center"><strong>Página de Boas-Vindas</strong></td>
-  </tr>
-</table>
-
 ## ✨ Funcionalidades
 
 - **Registro de Usuários:** Novos usuários podem se cadastrar com nome, email e senha.
