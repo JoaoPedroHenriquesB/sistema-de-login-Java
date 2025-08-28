@@ -90,4 +90,5 @@ Após iniciar, a aplicação estará disponível no seu navegador. Acesse:
 
 Você será redirecionado para a página de login. Crie uma conta e faça o login para testar!
 
+Este projeto está licenciado sob a licença GPL V3.
 ---
